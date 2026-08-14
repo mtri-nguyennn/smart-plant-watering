@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Smart Plant reading history" />
+  <title>Smart Plant | History</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="index.html"><span class="brand-mark">SP</span><span><strong>Smart Plant</strong><small>Watering System</small></span></a>
+      <nav class="nav-list" aria-label="Primary navigation">
+        <a class="nav-link" href="index.html">Dashboard</a>
+        <a class="nav-link" href="control.html">Pump Control</a>
+        <a class="nav-link active" href="history.html">History</a>
+      </nav>
+      <div class="sidebar-footer"><span class="eyebrow">Device</span><strong id="sidebarDeviceId">—</strong></div>
+    </aside>
+
+    <main class="main-content">
+      <header class="page-header">
+        <div>
+          <p class="eyebrow">Sensor records</p>
+          <h1>Reading History</h1>
+          <p class="muted">Newest readings first, including the pump state at measurement time.</p>
+        </div>
+      </header>
+
+      <div id="connectionMessage" class="alert danger" hidden></div>
+
+      <section class="content-card">
+        <div class="toolbar">
+          <div>
+            <label class="field-label" for="limitSelect">Rows</label>
+            <select id="limitSelect" class="select-input">
+              <option value="10">10</option>
+              <option value="25" selected>25</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+            </select>
+          </div>
+          <button id="refreshButton" class="button secondary" type="button">Refresh history</button>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Time</th>
+                <th>Raw</th>
+                <th>Moisture</th>
+                <th>Condition</th>
+                <th>Pump</th>
+              </tr>
+            </thead>
+            <tbody id="historyBody">
+              <tr><td colspan="5" class="empty-cell">Loading readings…</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p id="historySummary" class="muted table-summary"></p>
+      </section>
+    </main>
+  </div>
+
+  <div id="toastRegion" class="toast-region" aria-live="polite"></div>
+  <script src="config.js"></script>
+  <script src="common.js"></script>
+  <script src="history.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+# Dependencies
+backend/node_modules/
+node_modules/
+
+# Environment variables and application secrets
+.env
+.env.*
+!.env.example
+!**/.env.example
+backend/.env
+esp32/smart-plant/secrets.h
+**/secrets.local.h
+
+# Private keys, certificates, and cloud service credentials
+*.pem
+*.key
+*.p12
+*.pfx
+service-account*.json
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS / editor
+.DS_Store
+# macOS Finder custom-folder icon metadata (including the Icon\r variant).
+Icon
+Icon?
+.vscode/
+.idea/
+
+# Temporary files
+backend/data/*.tmp
